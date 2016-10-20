@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VSPromptAuthenticationController">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="QKu-zB-JEU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="262" height="314"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place finger to authenticate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oON-ID-Jfq">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iPhoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="sYy-fu-Q1e">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="2JY-eN-c4u"/>
+                        <constraint firstAttribute="height" constant="74" id="WDp-YA-biZ"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PointingFinger" translatesAutoresizingMaskIntoConstraints="NO" id="MH4-73-Izh">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="18o-S1-gzL"/>
+                        <constraint firstAttribute="width" constant="39" id="BM4-5e-slH"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DownwardsTriangle" translatesAutoresizingMaskIntoConstraints="NO" id="fmR-T5-Wh4">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="68" id="IP6-IZ-2rD"/>
+                        <constraint firstAttribute="width" constant="33" id="dgt-Ow-B1P"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="fmR-T5-Wh4" secondAttribute="bottom" constant="20" id="1YQ-zY-7AS"/>
+                <constraint firstAttribute="trailing" secondItem="oON-ID-Jfq" secondAttribute="trailing" constant="16" id="3YT-D7-3qD"/>
+                <constraint firstItem="sYy-fu-Q1e" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="I7y-e7-nIp"/>
+                <constraint firstItem="sYy-fu-Q1e" firstAttribute="top" secondItem="oON-ID-Jfq" secondAttribute="bottom" constant="30" id="LXo-bd-dkg"/>
+                <constraint firstItem="oON-ID-Jfq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="NU7-o4-aOh"/>
+                <constraint firstAttribute="centerX" secondItem="fmR-T5-Wh4" secondAttribute="centerX" priority="900" constant="8" id="NjS-tW-uiy"/>
+                <constraint firstItem="MH4-73-Izh" firstAttribute="top" secondItem="sYy-fu-Q1e" secondAttribute="bottom" constant="-11" id="UJG-2Y-dGX"/>
+                <constraint firstItem="MH4-73-Izh" firstAttribute="leading" secondItem="sYy-fu-Q1e" secondAttribute="leading" constant="7" id="Uoj-Zv-2SA"/>
+                <constraint firstItem="oON-ID-Jfq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="oDN-9O-Ewz"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-72" y="214"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="DownwardsTriangle" width="63" height="137"/>
+        <image name="PointingFinger" width="79" height="100"/>
+        <image name="iPhoneIcon" width="74" height="148"/>
+    </resources>
+</document>
