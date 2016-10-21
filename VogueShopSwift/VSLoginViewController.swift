@@ -72,8 +72,10 @@ class VSLoginViewController: UIViewController, UIPopoverPresentationControllerDe
 //        self.present(destNav, animated: true) {
 //            self.performTouchIDAuthentication()
 //        }
-        
-        self.performTouchIDAuthentication()
+        let navigationController : UINavigationController = self.storyboard?.instantiateViewController(withIdentifier: "VSNavigationViewController") as! UINavigationController
+        navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        self.present(navigationController, animated: true, completion: nil)
+       
     }
 
 
@@ -126,63 +128,5 @@ func notifyUserAuthenticationError(alertTitle : String, errorDesc : String?) {
     alert.addAction(alertAction)
     self.present(alert, animated: true, completion: nil)
 }
-    
-//    if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
-//    [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
-//    localizedReason:@"Authentication is needed to access your account."
-//    reply:^(BOOL success, NSError *error) {
-//    
-//    if (error) {
-//    NSLog(@"There was a problem verifying your identity.");
-//    return;
-//    }
-//    
-//    if (success) {
-//    NSLog(@"Authentication succeeded");
-//    [self dismissViewControllerAnimated:YES completion:NULL];
-//    
-//    UINavigationController * navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"VSNavigationViewController"];
-//    
-//    navigationController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-//    [self presentViewController:navigationController animated:YES completion:NULL];
-//    
-//    }
-//    else {
-//    NSLog(@"Authentication failed. Please try again.");
-//    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error"
-//    message:@"Authentication failed. Please try again."
-//    preferredStyle:UIAlertControllerStyleAlert];
-//    
-//    UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"OK"
-//    style:UIAlertActionStyleDefault
-//    handler:^(UIAlertAction * action) {
-//    [self dismissViewControllerAnimated:YES completion:NULL];
-//    }];
-//    [alert addAction:alertAction];
-//    [self presentViewController:alert animated:YES completion:NULL];         }
-//    
-//    }];
-//    
-//    } else {
-//    NSLog(@"Your device cannot authenticate using TouchID.");
-//    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error"
-//    message:@"Your device cannot authenticate using TouchID."
-//    preferredStyle:UIAlertControllerStyleAlert];
-//    
-//    UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"OK"
-//    style:UIAlertActionStyleDefault
-//    handler:^(UIAlertAction * action) {
-//    [self dismissViewControllerAnimated:YES completion:NULL];
-//    }];
-//    [alert addAction:alertAction];
-//    [self presentViewController:alert animated:YES completion:NULL];
-//    
-//    }
-//    }
-    
-
-    
-    
-    
     
 }

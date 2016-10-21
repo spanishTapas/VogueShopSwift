@@ -13,6 +13,9 @@
 		C727E4D01DB6DD9500B36788 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C727E4CE1DB6DD9500B36788 /* LaunchScreen.storyboard */; };
 		C73AFC971DB84CFB0039963E /* VSPromptAuthenticationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C73AFC961DB84CFB0039963E /* VSPromptAuthenticationController.xib */; };
 		C73AFC9A1DB84DF50039963E /* VSPromptAuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73AFC991DB84DF50039963E /* VSPromptAuthenticationController.swift */; };
+		C73AFC9C1DB8627C0039963E /* VSContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73AFC9B1DB8627C0039963E /* VSContainerController.swift */; };
+		C73AFC9E1DB862F30039963E /* VSShoppingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C73AFC9D1DB862F30039963E /* VSShoppingCollectionCell.xib */; };
+		C73AFCA21DB933BF0039963E /* UIImage + VSAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73AFCA11DB933BF0039963E /* UIImage + VSAdditions.swift */; };
 		C7DC9DB01DB6F09500867024 /* VSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DC9DAF1DB6F09500867024 /* VSLoginViewController.swift */; };
 		C7DC9DB41DB6F4FD00867024 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7DC9DB31DB6F4FD00867024 /* LocalAuthentication.framework */; };
 /* End PBXBuildFile section */
@@ -26,6 +29,9 @@
 		C727E4D11DB6DD9500B36788 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C73AFC961DB84CFB0039963E /* VSPromptAuthenticationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSPromptAuthenticationController.xib; sourceTree = "<group>"; };
 		C73AFC991DB84DF50039963E /* VSPromptAuthenticationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSPromptAuthenticationController.swift; sourceTree = "<group>"; };
+		C73AFC9B1DB8627C0039963E /* VSContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSContainerController.swift; sourceTree = "<group>"; };
+		C73AFC9D1DB862F30039963E /* VSShoppingCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSShoppingCollectionCell.xib; sourceTree = "<group>"; };
+		C73AFCA11DB933BF0039963E /* UIImage + VSAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage + VSAdditions.swift"; sourceTree = "<group>"; };
 		C7DC9DAF1DB6F09500867024 /* VSLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSLoginViewController.swift; sourceTree = "<group>"; };
 		C7DC9DB31DB6F4FD00867024 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -76,9 +82,19 @@
 		C73AFC981DB84D030039963E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C73AFCA31DB933CC0039963E /* Extensions */,
 				C73AFC961DB84CFB0039963E /* VSPromptAuthenticationController.xib */,
+				C73AFC9D1DB862F30039963E /* VSShoppingCollectionCell.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		C73AFCA31DB933CC0039963E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C73AFCA11DB933BF0039963E /* UIImage + VSAdditions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		C7DC9DB11DB6F0A800867024 /* Controllers */ = {
@@ -86,6 +102,7 @@
 			children = (
 				C7DC9DAF1DB6F09500867024 /* VSLoginViewController.swift */,
 				C73AFC991DB84DF50039963E /* VSPromptAuthenticationController.swift */,
+				C73AFC9B1DB8627C0039963E /* VSContainerController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -160,6 +177,7 @@
 			files = (
 				C73AFC971DB84CFB0039963E /* VSPromptAuthenticationController.xib in Resources */,
 				C727E4D01DB6DD9500B36788 /* LaunchScreen.storyboard in Resources */,
+				C73AFC9E1DB862F30039963E /* VSShoppingCollectionCell.xib in Resources */,
 				C727E4CD1DB6DD9500B36788 /* Assets.xcassets in Resources */,
 				C727E4CB1DB6DD9500B36788 /* Main.storyboard in Resources */,
 			);
@@ -174,6 +192,8 @@
 			files = (
 				C727E4C61DB6DD9500B36788 /* AppDelegate.swift in Sources */,
 				C7DC9DB01DB6F09500867024 /* VSLoginViewController.swift in Sources */,
+				C73AFCA21DB933BF0039963E /* UIImage + VSAdditions.swift in Sources */,
+				C73AFC9C1DB8627C0039963E /* VSContainerController.swift in Sources */,
 				C73AFC9A1DB84DF50039963E /* VSPromptAuthenticationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

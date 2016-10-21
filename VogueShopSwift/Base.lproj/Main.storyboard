@@ -94,7 +94,7 @@
         <!--Container Controller-->
         <scene sceneID="2gS-Lr-RzE">
             <objects>
-                <viewController storyboardIdentifier="VSContainerViewController" id="tvn-1n-TC3" customClass="VSContainerController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VSContainerViewController" id="tvn-1n-TC3" customClass="VSContainerController" customModule="VogueShopSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d9f-bq-B7k"/>
                         <viewControllerLayoutGuide type="bottom" id="REW-at-icc"/>
@@ -149,9 +149,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="vEf-sU-C3u" kind="show" id="ndE-5O-jtl"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 new offer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRE-94-Tz8">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -247,6 +244,14 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Red-fP-hdv"/>
+                    <connections>
+                        <outlet property="eventButton" destination="1Bx-4X-TO0" id="JFQ-jF-3CI"/>
+                        <outlet property="loyaltyImageView" destination="R7G-Zk-ImN" id="mzj-mp-9bu"/>
+                        <outlet property="loyaltyPointsLabel" destination="iSP-dv-2xR" id="LEw-iU-U65"/>
+                        <outlet property="shopButton" destination="bsh-ju-TmV" id="vIq-0M-K9a"/>
+                        <outlet property="shopperButton" destination="4Xg-jO-syi" id="I7d-Tm-SGD"/>
+                        <outlet property="tagImageView" destination="ccX-CW-hkQ" id="iS5-ur-Dbu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="muK-lz-ffY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -298,7 +303,7 @@
                         <viewControllerLayoutGuide type="bottom" id="UnC-bM-2F9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uaj-TQ-QR3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="269.33333333333331"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="269"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vIC-xn-b2Y">
