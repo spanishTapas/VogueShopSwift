@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VSContainerController: UIViewController/*, UIPageViewControllerDelegate, UIPageViewControllerDataSource*/{
+class VSContainerController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     @IBOutlet weak var shopButton: UIButton!
     @IBOutlet weak var eventButton: UIButton!
@@ -17,9 +17,31 @@ class VSContainerController: UIViewController/*, UIPageViewControllerDelegate, U
     @IBOutlet weak var loyaltyImageView: UIImageView!
     @IBOutlet weak var loyaltyPointsLabel: UILabel!
     
+    var pageViewController : UIPageViewController?
+    var pages : Array<UIViewController> = []
+    
+    // MARK: - Designated Initializer
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        //fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        // TODO: Update title font to custom font.
+        self.navigationItem.title = "Vogue Store"
+        
+        // Setup page view controller
+        self.pageViewController?.delegate = self
+        self.pageViewController?.dataSource = self
+        
+        // setup pageViewController data source
+        self.updatePageViewControllerDataSource()
         self .setupNavigationBar()
         self.setupButtons()
     }
@@ -60,4 +82,91 @@ class VSContainerController: UIViewController/*, UIPageViewControllerDelegate, U
     self.shopperButton.imageEdgeInsets = UIEdgeInsetsMake(0, leftInset, 0, rightInset)
     }
 
+    func productImageViewControllerWithImage(imageID : String, type : VSProductImageController.ImageType) -> VSProductImageController? {
+        // Create a product image view controller showing product image
+        // Image is hard coded for this prototype
+        // TODO: Fetch image from server
+        //var productImageVC : VSProductImageController?
+        
+        let productImageVC = self.storyboard?.instantiateViewController(withIdentifier: "ProductImageScene") as! VSProductImageController?
+        productImageVC?.imageID = imageID
+        productImageVC?.imageType = type
+        
+        return productImageVC
+    }
+    
+    // MARK: - UIPageViewControllerDataSource
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        var previousController : UIViewController?
+        if let currentIndex = self.pages.index(of: viewController) {
+            let previousIndex = abs((currentIndex - 1) % self.pages.count)
+            previousController = self.pages[previousIndex]
+        }
+        
+        return previousController
+    }
+    
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        var nextController : UIViewController?
+        if let currentIndex = self.pages.index(of: viewController) {
+            let nextIndex = abs((currentIndex + 1) % self.pages.count)
+            nextController = self.pages[nextIndex]
+        }
+        return nextController
+    }
+    
+    
+    func updatePageViewControllerDataSource() {
+    
+    // Hard code an array of product images for the prototype
+    // TODO: Determine the logic to display product images
+        if let viewController1 = self.productImageViewControllerWithImage(imageID: "Red Sneaker", type: .kVSImageTypeProduct) {
+            self.pages.append(viewController1)
+        }
+        
+        if let viewController2 = self.productImageViewControllerWithImage(imageID: "Black_Heels", type: .kVSImageTypeProduct) {
+            self.pages.append(viewController2)
+        }
+        
+        if let viewController3 = self.productImageViewControllerWithImage(imageID: "Fashion_Show", type: .kVSImageTypeEvent) {
+            self.pages.append(viewController3)
+        }
+        
+        if let viewController4 = self.productImageViewControllerWithImage(imageID: "Personal_Shopper", type: .kVSImageTypeShopper) {
+            self.pages.append(viewController4)
+        }
+
+        if let viewController1 = self.pages.first {
+            self.pageViewController?.setViewControllers([viewController1], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+        }
+    
+    }
+    
+    // The number of items reflected in the page indicator.
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return self.pages.count
+    }
+    
+    // The selected item reflected in the page indicator.
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return 0
+    }
+    
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ContainerEmbedSegue" {
+            if segue.destination.isKind(of: UIPageViewController.classForCoder()) {
+                let pageVC : UIPageViewController = segue.destination as! UIPageViewController
+                self.pageViewController = pageVC
+            }
+        }
+    }
+    
 }

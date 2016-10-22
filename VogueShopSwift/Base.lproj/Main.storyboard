@@ -124,7 +124,7 @@
                                     <constraint firstAttribute="width" secondItem="RaQ-Lk-qgX" secondAttribute="height" multiplier="325:244" priority="900" id="UvN-g1-FcZ"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="YqQ-7d-icC" kind="embed" id="8d0-f3-sXv"/>
+                                    <segue destination="YqQ-7d-icC" kind="embed" identifier="ContainerEmbedSegue" id="8d0-f3-sXv"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8W-pS-edh">
@@ -149,6 +149,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="vEf-sU-C3u" kind="show" id="Dwc-9i-jrC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 new offer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRE-94-Tz8">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -297,7 +300,7 @@
         <!--Product Image Controller-->
         <scene sceneID="N9p-vM-1i5">
             <objects>
-                <viewController storyboardIdentifier="ProductImageScene" id="3fd-Ly-lrh" customClass="VSProductImageController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductImageScene" id="3fd-Ly-lrh" customClass="VSProductImageController" customModule="VogueShopSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8HE-fk-2xo"/>
                         <viewControllerLayoutGuide type="bottom" id="UnC-bM-2F9"/>
@@ -348,10 +351,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="actionButton" destination="GDn-BF-TqU" id="tdF-21-X0p"/>
-                        <outlet property="eventImageView" destination="laJ-JL-m9e" id="y7f-VY-DpY"/>
-                        <outlet property="productImageView" destination="vIC-xn-b2Y" id="4bT-Mr-Pzn"/>
-                        <outlet property="typeLabel" destination="KVV-22-0Hs" id="ZBc-5T-czG"/>
+                        <outlet property="actionButton" destination="GDn-BF-TqU" id="XcE-VR-Anv"/>
+                        <outlet property="eventImageView" destination="laJ-JL-m9e" id="nZm-tc-VrK"/>
+                        <outlet property="productImageView" destination="vIC-xn-b2Y" id="MLc-EZ-pSB"/>
+                        <outlet property="typeLabel" destination="KVV-22-0Hs" id="42n-kH-7tq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJA-cR-zQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
