@@ -23,7 +23,14 @@ class VSProduct: NSObject, NSCoding {
         self.price = jsonObject.object(forKey: "Price") as! NSNumber?
     }
     **/
-
+    
+    init?(description: String, imageID: String, price: NSNumber) {
+        super.init()
+        self.productDescription = description
+        self.imageID = imageID
+        self.price = price
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         self.productDescription = aDecoder.decodeObject(forKey: "productDescription") as! String?
         self.imageID = aDecoder.decodeObject(forKey: "imageID") as! String?

@@ -18,6 +18,8 @@
 		C73AFCA21DB933BF0039963E /* UIImage + VSAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73AFCA11DB933BF0039963E /* UIImage + VSAdditions.swift */; };
 		C73AFCAD1DB9B3C00039963E /* VSProductImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73AFCAC1DB9B3C00039963E /* VSProductImageController.swift */; };
 		C73AFCB31DBC11C40039963E /* VSProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73AFCB21DBC11C40039963E /* VSProduct.swift */; };
+		C73AFCB61DBC21830039963E /* VSShoppingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73AFCB51DBC21830039963E /* VSShoppingCollectionCell.swift */; };
+		C73AFCB81DBD687B0039963E /* VSShoppingCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73AFCB71DBD687B0039963E /* VSShoppingCollectionController.swift */; };
 		C7DC9DB01DB6F09500867024 /* VSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DC9DAF1DB6F09500867024 /* VSLoginViewController.swift */; };
 		C7DC9DB41DB6F4FD00867024 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7DC9DB31DB6F4FD00867024 /* LocalAuthentication.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +38,8 @@
 		C73AFCA11DB933BF0039963E /* UIImage + VSAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage + VSAdditions.swift"; sourceTree = "<group>"; };
 		C73AFCAC1DB9B3C00039963E /* VSProductImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSProductImageController.swift; sourceTree = "<group>"; };
 		C73AFCB21DBC11C40039963E /* VSProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSProduct.swift; sourceTree = "<group>"; };
+		C73AFCB51DBC21830039963E /* VSShoppingCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSShoppingCollectionCell.swift; sourceTree = "<group>"; };
+		C73AFCB71DBD687B0039963E /* VSShoppingCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSShoppingCollectionController.swift; sourceTree = "<group>"; };
 		C7DC9DAF1DB6F09500867024 /* VSLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSLoginViewController.swift; sourceTree = "<group>"; };
 		C7DC9DB31DB6F4FD00867024 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -90,6 +94,7 @@
 				C73AFCA31DB933CC0039963E /* Extensions */,
 				C73AFC961DB84CFB0039963E /* VSPromptAuthenticationController.xib */,
 				C73AFC9D1DB862F30039963E /* VSShoppingCollectionCell.xib */,
+				C73AFCB51DBC21830039963E /* VSShoppingCollectionCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 				C73AFC991DB84DF50039963E /* VSPromptAuthenticationController.swift */,
 				C73AFC9B1DB8627C0039963E /* VSContainerController.swift */,
 				C73AFCAC1DB9B3C00039963E /* VSProductImageController.swift */,
+				C73AFCB71DBD687B0039963E /* VSShoppingCollectionController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -209,7 +215,9 @@
 				C7DC9DB01DB6F09500867024 /* VSLoginViewController.swift in Sources */,
 				C73AFCA21DB933BF0039963E /* UIImage + VSAdditions.swift in Sources */,
 				C73AFC9C1DB8627C0039963E /* VSContainerController.swift in Sources */,
+				C73AFCB81DBD687B0039963E /* VSShoppingCollectionController.swift in Sources */,
 				C73AFCAD1DB9B3C00039963E /* VSProductImageController.swift in Sources */,
+				C73AFCB61DBC21830039963E /* VSShoppingCollectionCell.swift in Sources */,
 				C73AFC9A1DB84DF50039963E /* VSPromptAuthenticationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

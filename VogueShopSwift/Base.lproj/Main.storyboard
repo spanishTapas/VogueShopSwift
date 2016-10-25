@@ -263,7 +263,7 @@
         <!--Shopping Collection Controller-->
         <scene sceneID="PUS-yf-cxQ">
             <objects>
-                <collectionViewController id="vEf-sU-C3u" customClass="VSShoppingCollectionController" sceneMemberID="viewController">
+                <collectionViewController id="vEf-sU-C3u" customClass="VSShoppingCollectionController" customModule="VogueShopSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="e4e-5c-AkG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
