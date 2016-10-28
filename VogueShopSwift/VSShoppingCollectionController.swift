@@ -10,7 +10,8 @@ import UIKit
 
 private let reuseIdentifier = "VSShoppingCollectionCell"
 
-class VSShoppingCollectionController: UICollectionViewController {
+class VSShoppingCollectionController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    var itemsInCart : NSInteger = 0
     
     private enum SectionType : String {
         case FEATURED_SECTION = "Featured"
@@ -33,6 +34,50 @@ class VSShoppingCollectionController: UICollectionViewController {
     
     private var sections = [Section]()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        
+        // Register cell classes
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        let cellNib = UINib(nibName: "VSShoppingCollectionCell", bundle: nil)
+        self.collectionView?.register(cellNib, forCellWithReuseIdentifier: reuseIdentifier)
+        // Do any additional setup after loading the view.
+        self.setupNavigationBar()
+        self.setupCollectionViewDataSource()
+    }
+    
+    // MARK: Navigation bar & bar button item
+    func setupNavigationBar() {
+        
+        let rightIcon = UIImage(named:"Shopping_Cart")
+        
+        let resizedRightIcon = rightIcon?.resizedImageWithContentMode(contentMode: UIViewContentMode.scaleAspectFit, bounds: CGSize(width: 30, height: 30), interpolationQuality: CGInterpolationQuality.high)
+        
+        let button = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: (resizedRightIcon?.size.width)!, height: (resizedRightIcon?.size.height)!))
+            
+        button.setBackgroundImage(resizedRightIcon, for: UIControlState())
+        
+        let newBarButton = VSBadgeBarButtonItem(customView: button, value: "\(itemsInCart)")
+
+        self.navigationItem.rightBarButtonItem = newBarButton
+    
+    }
+    
+    @IBAction func addToCartButtonPressed(_ sender: UIButton) {
+        itemsInCart += 1
+        if let badgeButton = self.navigationItem.rightBarButtonItem as? VSBadgeBarButtonItem {
+            badgeButton.badgeValue = "\(self.itemsInCart)"
+        }
+        
+        //self.navigationItem.rightBarButtonItem?.badgeValue = "\(self.itemsInCart)"
+            
+        print("\(itemsInCart)")
+    }
+   
+    // MARK: UICollectionViewDataSource
     func setupCollectionViewDataSource() {
         sections = [
             Section(type: .FEATURED_SECTION, items: [.MAGiCIAN_HAT]),
@@ -40,37 +85,6 @@ class VSShoppingCollectionController: UICollectionViewController {
         ]
     }
     
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        let cellNib = UINib(nibName: "VSShoppingCollectionCell", bundle: nil)
-        self.collectionView?.register(cellNib, forCellWithReuseIdentifier: reuseIdentifier)
-        // Do any additional setup after loading the view.
-        
-        self.setupCollectionViewDataSource()
-    }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return sections.count
@@ -83,7 +97,7 @@ class VSShoppingCollectionController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell : VSShoppingCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! VSShoppingCollectionCell
     
         // Configure the cell
         var nibLoaded : Bool = false
@@ -93,11 +107,11 @@ class VSShoppingCollectionController: UICollectionViewController {
             nibLoaded = true
         }
         // Configure the cell
-        self.configureProductCollectionCell(cell: cell as! VSShoppingCollectionCell, atIndexPath: indexPath)
+        self.configureProductCollectionCell(cell: cell , atIndexPath: indexPath)
         
         // To detect and handle button clicks
-       // [cell.addToCartButton addTarget:self action:@selector(addToCartButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        
+        cell.addToCartButton.addTarget(self, action: #selector(addToCartButtonPressed(_:)), for: UIControlEvents.touchUpInside)
+       
         return cell
     }
 
@@ -153,22 +167,26 @@ class VSShoppingCollectionController: UICollectionViewController {
 
     // MARK: UICollectionViewDelegateFlowLayout
     
+    // Asks the delegate for the size of the specified item’s cell.
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+        let margin : CGFloat = 20
+        let height : CGFloat = 180
+        var width : CGFloat = collectionView.frame.size.width - 2 * margin
+        
+        let section = sections[indexPath.section]
+        
+        if section.type == .COMMON_SECTION {
+            width = (width - margin) / 2
+        }
+        return CGSize(width: width, height: height)
+    }
     
-//    - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    CGFloat height = 180;
-//    CGFloat width = collectionView.frame.size.width - 2 * MARGIN;
-//    NSArray * sections = [self.sectionData allKeys];
-//    if ([[sections objectAtIndex:indexPath.section] isEqualToString:COMMON_SECTION]) {
-//    width = (width - MARGIN) / 2;
-//    }
-//    return CGSizeMake(width, height);
-//    }
-//    
-//    - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-//    return UIEdgeInsetsMake(MARGIN, MARGIN, MARGIN, MARGIN);
-//    }
+    // Asks the delegate for the margins to apply to content in the specified section.
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let margin : CGFloat = 20
+        return UIEdgeInsetsMake(margin, margin, margin, margin)
+    }
 
-    
     // MARK: UICollectionViewDelegate
 
     /*
