@@ -57,22 +57,26 @@ class VSShoppingCollectionController: UICollectionViewController, UICollectionVi
         let resizedRightIcon = rightIcon?.resizedImageWithContentMode(contentMode: UIViewContentMode.scaleAspectFit, bounds: CGSize(width: 30, height: 30), interpolationQuality: CGInterpolationQuality.high)
         
         let button = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: (resizedRightIcon?.size.width)!, height: (resizedRightIcon?.size.height)!))
-            
         button.setBackgroundImage(resizedRightIcon, for: UIControlState())
         
-        let newBarButton = VSBadgeBarButtonItem(customView: button, value: "\(itemsInCart)")
+        // Use barButtonItem extension
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        
+        /**
+         Subclass barButtonItem
+        //let newBarButton = VSBadgeBarButtonItem(customView: button, value: "\(itemsInCart)")
 
-        self.navigationItem.rightBarButtonItem = newBarButton
-    
+        //self.navigationItem.rightBarButtonItem = newBarButton
+        **/
     }
     
     @IBAction func addToCartButtonPressed(_ sender: UIButton) {
         itemsInCart += 1
-        if let badgeButton = self.navigationItem.rightBarButtonItem as? VSBadgeBarButtonItem {
-            badgeButton.badgeValue = "\(self.itemsInCart)"
-        }
+//        if let badgeButton = self.navigationItem.rightBarButtonItem as? VSBadgeBarButtonItem {
+//            badgeButton.badgeValue = "\(self.itemsInCart)"
+//        }
         
-        //self.navigationItem.rightBarButtonItem?.badgeValue = "\(self.itemsInCart)"
+        self.navigationItem.rightBarButtonItem?.value = "\(self.itemsInCart)"
             
         print("\(itemsInCart)")
     }

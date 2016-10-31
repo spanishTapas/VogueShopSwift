@@ -21,6 +21,7 @@
 		C73AFCB61DBC21830039963E /* VSShoppingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73AFCB51DBC21830039963E /* VSShoppingCollectionCell.swift */; };
 		C73AFCB81DBD687B0039963E /* VSShoppingCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73AFCB71DBD687B0039963E /* VSShoppingCollectionController.swift */; };
 		C772487A1DC3E52F00BC640E /* VSBadgeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77248791DC3E52F00BC640E /* VSBadgeBarButtonItem.swift */; };
+		C772487E1DC41BD900BC640E /* UIBarButtonItem + Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C772487D1DC41BD900BC640E /* UIBarButtonItem + Badge.swift */; };
 		C7DC9DB01DB6F09500867024 /* VSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DC9DAF1DB6F09500867024 /* VSLoginViewController.swift */; };
 		C7DC9DB41DB6F4FD00867024 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7DC9DB31DB6F4FD00867024 /* LocalAuthentication.framework */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		C73AFCB51DBC21830039963E /* VSShoppingCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSShoppingCollectionCell.swift; sourceTree = "<group>"; };
 		C73AFCB71DBD687B0039963E /* VSShoppingCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSShoppingCollectionController.swift; sourceTree = "<group>"; };
 		C77248791DC3E52F00BC640E /* VSBadgeBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSBadgeBarButtonItem.swift; sourceTree = "<group>"; };
+		C772487D1DC41BD900BC640E /* UIBarButtonItem + Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem + Badge.swift"; sourceTree = "<group>"; };
 		C7DC9DAF1DB6F09500867024 /* VSLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSLoginViewController.swift; sourceTree = "<group>"; };
 		C7DC9DB31DB6F4FD00867024 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				C73AFCA11DB933BF0039963E /* UIImage + VSAdditions.swift */,
+				C772487D1DC41BD900BC640E /* UIBarButtonItem + Badge.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C772487E1DC41BD900BC640E /* UIBarButtonItem + Badge.swift in Sources */,
 				C727E4C61DB6DD9500B36788 /* AppDelegate.swift in Sources */,
 				C73AFCB31DBC11C40039963E /* VSProduct.swift in Sources */,
 				C7DC9DB01DB6F09500867024 /* VSLoginViewController.swift in Sources */,
