@@ -131,7 +131,7 @@ class VSContainerController: UIViewController, UIPageViewControllerDelegate, UIP
         dataTask = defaultSession.dataTask(with: request, completionHandler: { (data, response, error) in
             
             guard let _ = data, let _:URLResponse = response , error == nil else {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "There is no error")
                 return
             }
             

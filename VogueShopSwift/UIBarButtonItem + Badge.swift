@@ -35,10 +35,9 @@ extension UIBarButtonItem {
             defaultOriginX = superView.frame.size.width - (self.badge.frame.size.width) / 2;
             // Avoiding badge to be clipped when animating its scale
             superView.clipsToBounds = false
-            //superView.addSubview(self.badge)
-            self.badge.layer.cornerRadius = self.badge.frame.size.width/2
             self.badge.clipsToBounds = true
-            
+            superView.addSubview(self.badge)
+
         }
         
 //        else if ([self respondsToSelector:@selector(view)] && [(id)self view]) {
@@ -46,7 +45,7 @@ extension UIBarButtonItem {
 //        defaultOriginX = superview.frame.size.width - self.badge.frame.size.width;
 //        }
 //        [superview addSubview:self.badge];
-    
+
     self.badgeBGColor   = UIColor.red
     self.badgeTextColor = UIColor.white
     self.badgeFont      = UIFont.systemFont(ofSize: 12)
@@ -56,7 +55,6 @@ extension UIBarButtonItem {
     self.badgeOriginY   = -4;
     self.shouldHideBadgeAtZero = true
     self.shouldAnimateBadge = true
-    
     
     }
 
@@ -70,7 +68,6 @@ extension UIBarButtonItem {
                badgeLabel = UILabel(frame: frame)
                 self.badge = badgeLabel!
                 self.InitiateBadge()
-                self.customView?.addSubview(badgeLabel!)
                 badgeLabel!.textAlignment = NSTextAlignment.center
                
             }
