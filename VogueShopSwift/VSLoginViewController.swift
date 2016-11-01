@@ -50,31 +50,31 @@ class VSLoginViewController: UIViewController, UIPopoverPresentationControllerDe
 
     @IBAction func promptAuthentication(_ sender: UIButton) {
         //Customized popover to prompt user for touchID authentication
-//        let promptVC : VSPromptAuthenticationController  = VSPromptAuthenticationController(nibName:"VSPromptAuthenticationController", bundle: nil)
-//        let destNav : UINavigationController = UINavigationController(rootViewController: promptVC)
-//    
-//        // Configure the popoverPresentationController
-//        let POPOVER_CONTENT_WIDTH = self.view.bounds.size.width * 0.67
-//        let POPOVER_CONTENT_HEIGHT = self.view.bounds.size.height * 0.40
-//        
-//        promptVC.preferredContentSize = CGSize(width: POPOVER_CONTENT_WIDTH, height: POPOVER_CONTENT_HEIGHT)
-//        destNav.modalPresentationStyle = UIModalPresentationStyle.popover
-//        
-//        var promptPopover : UIPopoverPresentationController
-//        promptPopover = destNav.popoverPresentationController!
-//        promptPopover.permittedArrowDirections = UIPopoverArrowDirection(rawValue: UInt(0)); // Remove popover arrow
-//        promptPopover.delegate = self;
-//        promptPopover.sourceView = self.view
-//        promptPopover.sourceRect = self.loginButton.frame
-//        
-//        destNav.navigationBar.isHidden = true
-//
-//        self.present(destNav, animated: true) {
-//            self.performTouchIDAuthentication()
-//        }
-        let navigationController : UINavigationController = self.storyboard?.instantiateViewController(withIdentifier: "VSNavigationViewController") as! UINavigationController
-        navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        self.present(navigationController, animated: true, completion: nil)
+        let promptVC : VSPromptAuthenticationController  = VSPromptAuthenticationController(nibName:"VSPromptAuthenticationController", bundle: nil)
+        let destNav : UINavigationController = UINavigationController(rootViewController: promptVC)
+    
+        // Configure the popoverPresentationController
+        let POPOVER_CONTENT_WIDTH = self.view.bounds.size.width * 0.67
+        let POPOVER_CONTENT_HEIGHT = self.view.bounds.size.height * 0.40
+        
+        promptVC.preferredContentSize = CGSize(width: POPOVER_CONTENT_WIDTH, height: POPOVER_CONTENT_HEIGHT)
+        destNav.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        var promptPopover : UIPopoverPresentationController
+        promptPopover = destNav.popoverPresentationController!
+        promptPopover.permittedArrowDirections = UIPopoverArrowDirection(rawValue: UInt(0)); // Remove popover arrow
+        promptPopover.delegate = self;
+        promptPopover.sourceView = self.view
+        promptPopover.sourceRect = self.loginButton.frame
+        
+        destNav.navigationBar.isHidden = true
+
+        self.present(destNav, animated: true) {
+            self.performTouchIDAuthentication()
+        }
+//        let navigationController : UINavigationController = self.storyboard?.instantiateViewController(withIdentifier: "VSNavigationViewController") as! UINavigationController
+//        navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+//        self.present(navigationController, animated: true, completion: nil)
        
     }
 
