@@ -44,6 +44,9 @@ class VSContainerController: UIViewController, UIPageViewControllerDelegate, UIP
         self.updatePageViewControllerDataSource()
         self .setupNavigationBar()
         self.setupButtons()
+        
+        // Fetch loyalty points and display in UI
+        self.fetchLoyaltyPoints()
     }
     func setupNavigationBar() {
         //TODO: Implement left and right bar button items.
@@ -93,6 +96,82 @@ class VSContainerController: UIViewController, UIPageViewControllerDelegate, UIP
         productImageVC?.imageType = type
         
         return productImageVC
+    }
+    
+    // MARK: - Network connection
+    
+    func fetchLoyaltyPoints() {
+        // http://54.191.35.66:8181/pfchang/api/buy username=Michael&grandTotal=0
+        
+        let customerName = "Michael"
+        let total = "0"
+        
+        let urlString = "http://54.191.35.66:8181/pfchang/api/buy"
+        let bodyString = "username=" + customerName + "&grandTotal=" + total
+        
+        let url = URL(string: urlString)
+        
+        // Create and configure the request
+        var request = URLRequest(url: url!)
+        
+        // Set method
+        request.httpMethod = "POST"
+            
+        // Set headers
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
+        // Set boday
+        request.httpBody = bodyString.data(using: String.Encoding.utf8)
+        
+        // Create session & task
+        let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
+        
+        var dataTask: URLSessionDataTask?
+        
+        dataTask = defaultSession.dataTask(with: request, completionHandler: { (data, response, error) in
+            
+            guard let _ = data, let _:URLResponse = response , error == nil else {
+                print(error?.localizedDescription)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                if let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                        print("response status is \(httpResponse.statusCode)")
+                    }
+                    
+                    if let responseData = data {
+                        self.updateLoyaltyPointsFrom(data: responseData)
+                    }
+    
+                }
+            }
+            
+
+        })
+        
+        dataTask?.resume()
+        
+    }
+    
+    func updateLoyaltyPointsFrom(data: Data) {
+        var content : [String : Any]
+        do {
+            //["status": SUCCESS, "username": Michael, "rewardPoints": 11083]
+            content = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String : Any]
+            
+            if let points = content["rewardPoints"] {
+                print("\(points)")
+                
+                self.loyaltyPointsLabel.text = "\(points)  pts"
+            }
+            print(content)
+           
+        } catch {
+            print("error serializing JSON: \(error)")
+        }
+        
     }
     
     // MARK: - UIPageViewControllerDataSource
