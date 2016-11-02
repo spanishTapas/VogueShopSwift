@@ -25,6 +25,18 @@ extension UIImage {
 //    }
 //    
     // Returns a copy of this image that is tinted with color.
+    func imageWith(color: UIColor) -> UIImage? {
+        let width : CGFloat = self.size.width
+        let height : CGFloat = self.size.height
+        let rect : CGRect = CGRect(x: 0, y: 0, width: width, height: height)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor);
+        context?.fill(rect);
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        return image
+    }
+    
     func tintWith(color: UIColor) -> UIImage {
 
         let imageToTint : CGImage? = self.cgImage
@@ -35,13 +47,14 @@ extension UIImage {
         let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
         
         let bitsPerComponent = 8 /* bits per channel */
-
+        let bytesPerPixel : CGFloat = 4 /* 4 channels per pixel * numPixels/row */
+        let bytesPerRow = bounds.size.width * bytesPerPixel
         let bitmapInfo = CGImageAlphaInfo.premultipliedLast.rawValue & CGBitmapInfo.alphaInfoMask.rawValue
         let bitmapContext = CGContext(data: nil,
                                      width: Int(width),
                                     height: Int(height),
                           bitsPerComponent: bitsPerComponent,
-                               bytesPerRow: 0,
+                               bytesPerRow: Int(bytesPerRow),
                                      space: colorSpace,
                                 bitmapInfo: bitmapInfo)
         
