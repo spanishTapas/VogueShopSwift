@@ -47,6 +47,10 @@ class VSContainerController: UIViewController, UIPageViewControllerDelegate, UIP
         
         // Fetch loyalty points and display in UI
         self.fetchLoyaltyPoints()
+        
+        let loyalty = UIImage(named: "Loyalty")
+        self.loyaltyImageView.image = loyalty
+        
     }
     func setupNavigationBar() {
         //TODO: Implement left and right bar button items.
@@ -147,8 +151,6 @@ class VSContainerController: UIViewController, UIPageViewControllerDelegate, UIP
     
                 }
             }
-            
-
         })
         
         dataTask?.resume()
