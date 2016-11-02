@@ -7,8 +7,56 @@
 //
 
 import UIKit
+import CoreFoundation
+import CoreGraphics
 
 extension UIImage {
+    // Returns a copy of this image that is cropped to the given bounds.
+    // The bounds will be adjusted using CGRectIntegral.
+    // This method ignores the image's imageOrientation setting.
+//    - (CSImage *)croppedImage:(CGRect)bounds {
+//    CGFloat scale = MAX(self.scale, 1.0f);
+//    CGRect scaledBounds = CGRectMake(bounds.origin.x * scale, bounds.origin.y * scale, bounds.size.width * scale, bounds.size.height * scale);
+//    CGImageRef imageRef = CGImageCreateWithImageInRect([self CGImage], scaledBounds);
+//    CSImage * croppedImage = [CSImage imageWithCGImage:imageRef scale:self.scale orientation:UIImageOrientationUp];
+//    CGImageRelease(imageRef);
+//    
+//    return croppedImage;
+//    }
+//    
+    // Returns a copy of this image that is tinted with color.
+    func tintWith(color: UIColor) -> UIImage {
+
+        let imageToTint : CGImage? = self.cgImage
+        let width : CGFloat = self.size.width
+        let height : CGFloat = self.size.height
+        let bounds : CGRect = CGRect(x: 0, y: 0, width: width, height: height)
+        
+        let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
+        
+        let bitsPerComponent = 8 /* bits per channel */
+
+        let bitmapInfo = CGImageAlphaInfo.premultipliedLast.rawValue & CGBitmapInfo.alphaInfoMask.rawValue
+        let bitmapContext = CGContext(data: nil,
+                                     width: Int(width),
+                                    height: Int(height),
+                          bitsPerComponent: bitsPerComponent,
+                               bytesPerRow: 0,
+                                     space: colorSpace,
+                                bitmapInfo: bitmapInfo)
+        
+       
+        bitmapContext!.clip(to: bounds, mask: imageToTint!)
+        bitmapContext!.setFillColor(color.cgColor);
+        bitmapContext!.fill(bounds)
+        
+        let cImage : CGImage  = bitmapContext!.makeImage()!;
+        let tintedImage : UIImage = UIImage(cgImage: cImage)
+        
+        return tintedImage
+        
+    }
+    
     // Resizes the image according to the given content mode, taking into account the image's orientation
     
     func resizedImageWithContentMode(contentMode : UIViewContentMode, bounds : CGSize, interpolationQuality : CGInterpolationQuality) -> UIImage {
@@ -56,7 +104,6 @@ extension UIImage {
         let scale : CGFloat = max(1.0, self.scale)
         let newRect : CGRect = CGRect(x: 0, y: 0, width: newSize.width * scale, height: newSize.height * scale).integral
         let transposedRect : CGRect = CGRect(x: 0, y: 0, width: newRect.size.height, height: newRect.size.width)
-        //let cg_image : CGImage = self.cgImage!
         
         let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
         
