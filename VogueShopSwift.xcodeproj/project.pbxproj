@@ -416,6 +416,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 095EA75BF9EB3EBF89CA53AC /* Pods-VogueShopSwift.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8R5SSX8RV5;
 				INFOPLIST_FILE = VogueShopSwift/Info.plist;
@@ -431,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4FA1B8D29655EC99602C2E23 /* Pods-VogueShopSwift.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8R5SSX8RV5;
 				INFOPLIST_FILE = VogueShopSwift/Info.plist;
