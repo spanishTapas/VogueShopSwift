@@ -1,0 +1,6 @@
+framework module Pods_VogueShopSwift {
+  umbrella header "Pods-VogueShopSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9012C9BAA33DE815F05D369A /* Pods_VogueShopSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8727160314700D60B27F32A0 /* Pods_VogueShopSwift.framework */; };
 		C727E4C61DB6DD9500B36788 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727E4C51DB6DD9500B36788 /* AppDelegate.swift */; };
 		C727E4CB1DB6DD9500B36788 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C727E4C91DB6DD9500B36788 /* Main.storyboard */; };
 		C727E4CD1DB6DD9500B36788 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C727E4CC1DB6DD9500B36788 /* Assets.xcassets */; };
@@ -27,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		095EA75BF9EB3EBF89CA53AC /* Pods-VogueShopSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VogueShopSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VogueShopSwift/Pods-VogueShopSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		4FA1B8D29655EC99602C2E23 /* Pods-VogueShopSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VogueShopSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-VogueShopSwift/Pods-VogueShopSwift.release.xcconfig"; sourceTree = "<group>"; };
+		8727160314700D60B27F32A0 /* Pods_VogueShopSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VogueShopSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C727E4C21DB6DD9500B36788 /* VogueShopSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VogueShopSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C727E4C51DB6DD9500B36788 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C727E4CA1DB6DD9500B36788 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,18 +58,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7DC9DB41DB6F4FD00867024 /* LocalAuthentication.framework in Frameworks */,
+				9012C9BAA33DE815F05D369A /* Pods_VogueShopSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		621A4891B932D9635E03B7E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				095EA75BF9EB3EBF89CA53AC /* Pods-VogueShopSwift.debug.xcconfig */,
+				4FA1B8D29655EC99602C2E23 /* Pods-VogueShopSwift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C727E4B91DB6DD9500B36788 = {
 			isa = PBXGroup;
 			children = (
 				C727E4C41DB6DD9500B36788 /* VogueShopSwift */,
 				C727E4C31DB6DD9500B36788 /* Products */,
 				C7DC9DB21DB6F4FD00867024 /* Frameworks */,
+				621A4891B932D9635E03B7E0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				C7DC9DB31DB6F4FD00867024 /* LocalAuthentication.framework */,
+				8727160314700D60B27F32A0 /* Pods_VogueShopSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,9 +164,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C727E4D41DB6DD9500B36788 /* Build configuration list for PBXNativeTarget "VogueShopSwift" */;
 			buildPhases = (
+				83F9D71C84C032DBA1079EB7 /* [CP] Check Pods Manifest.lock */,
 				C727E4BE1DB6DD9500B36788 /* Sources */,
 				C727E4BF1DB6DD9500B36788 /* Frameworks */,
 				C727E4C01DB6DD9500B36788 /* Resources */,
+				62310606B5C1420CB5B2D5B5 /* [CP] Embed Pods Frameworks */,
+				25D0ABD3218FFF9B58E4EC4D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,6 +229,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		25D0ABD3218FFF9B58E4EC4D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VogueShopSwift/Pods-VogueShopSwift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62310606B5C1420CB5B2D5B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VogueShopSwift/Pods-VogueShopSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83F9D71C84C032DBA1079EB7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C727E4BE1DB6DD9500B36788 /* Sources */ = {
@@ -347,6 +414,7 @@
 		};
 		C727E4D51DB6DD9500B36788 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 095EA75BF9EB3EBF89CA53AC /* Pods-VogueShopSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8R5SSX8RV5;
@@ -361,6 +429,7 @@
 		};
 		C727E4D61DB6DD9500B36788 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FA1B8D29655EC99602C2E23 /* Pods-VogueShopSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8R5SSX8RV5;
