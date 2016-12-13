@@ -49,7 +49,7 @@ class VSLoginViewController: UIViewController, UIPopoverPresentationControllerDe
     
 
     @IBAction func promptAuthentication(_ sender: UIButton) {
-        //Customized popover to prompt user for touchID authentication
+        //Customized popover to prompt user for touch ID authentication
         let promptVC : VSPromptAuthenticationController  = VSPromptAuthenticationController(nibName:"VSPromptAuthenticationController", bundle: nil)
         let destNav : UINavigationController = UINavigationController(rootViewController: promptVC)
     
@@ -72,9 +72,12 @@ class VSLoginViewController: UIViewController, UIPopoverPresentationControllerDe
         self.present(destNav, animated: true) {
             self.performTouchIDAuthentication()
         }
-//        let navigationController : UINavigationController = self.storyboard?.instantiateViewController(withIdentifier: "VSNavigationViewController") as! UINavigationController
-//        navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//        self.present(navigationController, animated: true, completion: nil)
+        // Uncomment to by pass touch ID authentication
+        /**
+        let navigationController : UINavigationController = self.storyboard?.instantiateViewController(withIdentifier: "VSNavigationViewController") as! UINavigationController
+        navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        self.present(navigationController, animated: true, completion: nil)
+        **/
        
     }
 

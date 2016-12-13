@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class VSContainerController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
@@ -46,7 +47,10 @@ class VSContainerController: UIViewController, UIPageViewControllerDelegate, UIP
         self.setupButtons()
         
         // Fetch loyalty points and display in UI
-        self.fetchLoyaltyPoints()
+        //self.fetchLoyaltyPoints()
+        
+        // with Alamofire
+       self.updateLoyaltyPoints()
         
         let loyalty = UIImage(named: "Loyalty")
         self.loyaltyImageView.image = loyalty
@@ -174,6 +178,61 @@ class VSContainerController: UIViewController, UIPageViewControllerDelegate, UIP
             print("error serializing JSON: \(error)")
         }
         
+    }
+    
+    // With Alamofire
+    func fetchLoyaltyPoints(completion: @escaping (Data?) -> Void) {
+        let customerName = "Michael"
+        let total = "0"
+        let urlString = "http://54.191.35.66:8181/pfchang/api/buy"
+
+        
+        let request = Alamofire.request(
+            urlString,
+            method: HTTPMethod.post,
+            parameters: ["username": customerName, "grandTotal": total],
+            encoding: URLEncoding.default,
+            headers: ["Content-Type": "application/x-www-form-urlencoded"])
+        
+        request.validate().responseData { (response) in
+            guard response.result.isSuccess else {
+                print("Error while fetching loyalty points: \(response.result.error?.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            guard let responseJSON = response.result.value else {
+                print("Invalid information received from service")
+                completion(nil)
+                return
+            }
+            
+            print(responseJSON)
+            
+            completion(responseJSON)
+            
+        }
+        
+    }
+    
+    func updateLoyaltyPoints() {
+        self.fetchLoyaltyPoints { (data) in
+            var content : [String : Any]
+            do {
+                //["status": SUCCESS, "username": Michael, "rewardPoints": 11083]
+                content = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [String : Any]
+                
+                if let points = content["rewardPoints"] {
+                    print("\(points)")
+                    
+                    self.loyaltyPointsLabel.text = "\(points)  pts"
+                }
+                print(content)
+                
+            } catch {
+                print("error serializing JSON: \(error)")
+            }
+        }
     }
     
     // MARK: - UIPageViewControllerDataSource
